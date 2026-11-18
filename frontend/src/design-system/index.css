@@ -1,0 +1,172 @@
+/* Atlassian Design System Core CSS */
+@import url('https://fonts.googleapis.com/css2?family=Charlie+Text:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --color-text-primary: #F1F2F4;
+  --color-text-secondary: #9FADBC;
+  --color-text-subtle: #8C9BAB;
+  --color-text-inverse: #1D2125;
+  --color-text-brand: #579DFF;
+  --color-text-danger: #F87171;
+  --color-text-warning: #FBBF24;
+  --color-text-success: #4BCE97;
+
+  --color-bg-surface: #1D2125;
+  --color-bg-elevated: #22272B;
+  --color-bg-sunken: #161A1D;
+  --color-bg-subtle: #282E33;
+  --color-bg-subtle-hover: rgba(255, 255, 255, 0.08);
+  --color-bg-subtle-active: rgba(255, 255, 255, 0.16);
+  --color-bg-brand: #0C66E4;
+  --color-bg-brand-hover: #0055CC;
+  --color-bg-brand-active: #09326C;
+  --color-bg-brand-subtle: rgba(87, 157, 255, 0.15);
+  --color-bg-success-subtle: rgba(33, 110, 78, 0.35);
+  --color-bg-warning-subtle: rgba(165, 72, 0, 0.35);
+  --color-bg-danger-subtle: rgba(174, 46, 36, 0.35);
+
+  --color-border: #333C48;
+  --color-border-subtle: #2C333A;
+  --color-border-focused: #579DFF;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Fira Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  --shadow-e100: 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  --shadow-e200: 0 3px 5px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-e300: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 20px 32px -8px rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0.5);
+
+  --navbar-height: 56px;
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 20px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-bg-sunken);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.42857;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  color-scheme: dark;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Atlassian-style scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+a {
+  color: var(--color-text-brand);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-elevated);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-subtle);
+}
+
+option {
+  background-color: #22272B;
+  color: #F1F2F4;
+}
+
+/* Jira Lozenge base */
+.jira-lozenge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Dragging preview helper */
+.is-dragging {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.drop-target-active {
+  background-color: var(--color-bg-brand-subtle) !important;
+  outline: 2px dashed var(--color-border-focused) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.15s ease-out forwards;
+}
